@@ -1,0 +1,57 @@
+@charset "UTF-8";
+* {padding: 0; margin: 0; box-sizing: border-box;}
+#header {
+	width: 100%;
+	height: 10vh;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-bottom: 1px solid #ccc;
+	padding: 0 30px
+}
+a {text-decoration: none; color: inherit;}
+#header li {
+	list-style: none;
+	padding: 0 10px;
+}
+#header ul {
+	display: flex;
+}
+#main {
+	width:100%;
+	height: 80vh;
+	background-color: beige;
+	position: relative;
+}
+#footer {
+	width: 100%;
+	height: 10vh;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-top: 1px solid #ccc;
+	padding: 0 30px
+}
+table {
+	position: absolute;
+	top:100px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 70%;	
+}
+table {
+	border-collapse: collapse;
+}
+tr {
+	border-bottom: 1px solid brown;
+}
+td {padding: 10px;}
+#booklist td {	
+	text-align: center;
+}
+#main h2 {
+	position: absolute;
+	left: 15%;
+	top: 30px;
+	}
+
