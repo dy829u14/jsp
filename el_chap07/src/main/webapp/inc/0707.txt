@@ -1,0 +1,79 @@
+MVC 자료실형 게시판
+
+EL, JSTL, 파일업로드, 서블릿
+
+* 프로젝트 구상
+비회원제
+회원인증 없이 글을 쓸수있다
+글쓰기시 비밀번호 입력 필수
+비밀번호를 통해 수정이나 삭제하도록 함
+
+* 구현
+1. 목록보기
+ListController
+List.jsp
+2. 글쓰기
+WriteController
+Write.jsp
+자동페이지 이동 --> 목록보기
+3. 상세보기
+ViewController.java
+View.jsp
+수정하기, 삭제하기 버튼
+4. 삭제하기
+비밀번호 검증
+DeleteController.java
+Delete.jsp
+자동페이지 이동 --> 목록보기
+5. 수정하기
+비밀번호 검증 PassController.java
+EditController.java
+Edit.jsp
+자동페이지 이동 --> 상세보기
+
+* 기능별 요청명 정의
+목록보기		/mvcboard/list.do		ListController
+글쓰기		/mvcboard/write.do	WriterController
+상세보기		/mvcboard/view.do		ViewController
+비밀번호 검증	/mvcboard/pass.do		PassController
+수정		/mvcboard/edit.do		EditController
+삭제					PassController
+
+* 프로세스
+브라우저 요청 --> 서블릿(컨트롤러) --> jsp(뷰)
+자바빈즈(모델)
+
+1. 테이블 생성
+mvcboard 테이블 생성
+create table mvcboard(
+	idx number primary key,
+	name varchar2(50) not null,
+	title varchar2(200) not null,
+	content varchar2(2000) not null,
+	postdate date default sysdate not null,
+	ofile varchar2(200),
+	sfile varchar2(100),
+	pass varchar2(50) not null,
+	visitcount number default 0 not null
+)
+
+create sequence seq_mvcboard_num
+increment by 1
+start with 1
+minvalue 1
+maxvalue 9999
+nocycle
+nocache;
+
+
+
+
+
+
+
+
+
+
+
+
+

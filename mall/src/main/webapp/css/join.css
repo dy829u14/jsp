@@ -1,0 +1,11 @@
+@charset "UTF-8";
+table {
+	border: 1px solid #333;
+	position: relative;
+	top: 50%;
+	left: 50%;
+	background-color: tomato;
+}
+.phone {
+	width: 30px;
+}

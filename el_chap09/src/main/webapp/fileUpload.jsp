@@ -1,0 +1,45 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function validateForm(form) {
+		if(form.name.value == "") {
+			alert("작성자를 입력하세요")
+			form.name.focus();
+			return false;
+		}
+		if(form.title.value == "") {
+			alert("제목 입력하세요")
+			form.title.focus();
+			return false;
+		}
+		if(form.attachedFile.value == "") {
+			alert("첨부파일을 선택하세요")			
+			return false;
+		}
+	}
+</script>
+</head>
+<body>
+	<h3>파일 업로드</h3>
+	<form method="post" enctype="multipart/form-data" action="uploadProcess.jsp"
+	 onsubmit="return validateForm(this)">
+		<p>작성자 <input type="text" name="name"></p>
+		<p>제목 <input type="text" name="title"></p>
+		<p>카테고리(선택사항) 
+		<input type="checkbox" name="cate" value="사진">사진
+		<input type="checkbox" name="cate" value="과제">과제
+		<input type="checkbox" name="cate" value="워드">워드
+		<input type="checkbox" name="cate" value="음원">음원
+		</p>
+		<p>
+		첨부파일 <input type="file" name="attachedFile" />
+		</p>
+		<p><input type="submit" value="등록"></p>
+	</form>
+</body>
+</html>
