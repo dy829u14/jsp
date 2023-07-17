@@ -1,1 +1,13 @@
 @charset "UTF-8";
+footer {
+	border-top: 1px solid #333;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 15px;
+	width:100%;
+	background-color: #eee;
+}
+footer img {
+	width: 250px;
+}

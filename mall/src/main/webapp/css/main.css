@@ -2,8 +2,9 @@
 *{margin:0; padding:0; box-sizing:none;}
 a{text-decoration:none}
 li{list-style:none}
-#wrap{
+body {
 	width:100%;
+	text-align: center;
 }
 .inner{
 	max-width:1200px;
@@ -33,4 +34,12 @@ span{font-size:14px;}
 .newest_items{
 	width:200px;
 	height:330px;
+}
+#boardTable {
+	width: 1200px;
+	background-color: #ddd;
+	margin:0 auto;
+}
+#boardTable td {
+	padding: 5px;
 }

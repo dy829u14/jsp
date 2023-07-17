@@ -10,6 +10,11 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/member/join.do")
 public class JoinController extends HttpServlet{
+	
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		resp.sendRedirect("../join/Join.jsp");
+	}
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

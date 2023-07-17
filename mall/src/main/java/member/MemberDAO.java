@@ -2,7 +2,6 @@ package member;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import common.JDBCConnect;
@@ -10,6 +9,7 @@ import common.JDBCConnect;
 public class MemberDAO extends JDBCConnect{
 	//아이디와 패스워드에 일치하는 회원정보를 반환
 		public MemberDTO getMemberDTO(String id, String pass) {
+			
 			MemberDTO dto = new MemberDTO();
 			String sql = "select * from member where mID=? and mPW=?";
 			try {
@@ -24,14 +24,14 @@ public class MemberDAO extends JDBCConnect{
 					dto.setmADDRESS(rs.getString("mADDRESS"));
 					dto.setmPOST(rs.getString("mPOST"));
 					dto.setmRDATE(rs.getString("mRDATE"));
-					dto.setmBIRTH(rs.getString("mBIRTH"));					
-					dto.setmBUY(rs.getString("mBUY"));
+					dto.setmBIRTH(rs.getString("mBIRTH"));
 					dto.setmDROP(rs.getString("mDROP"));
+					dto.setmGRADE(rs.getString("mGrade"));
 				}
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			
 			return dto;
 		}
 		//회원추가하기
@@ -72,8 +72,7 @@ public class MemberDAO extends JDBCConnect{
 					dto.setmADDRESS(rs.getString("mADDRESS"));
 					dto.setmPOST(rs.getString("mPOST"));
 					dto.setmRDATE(rs.getString("mRDATE"));
-					dto.setmBIRTH(rs.getString("mBIRTH"));					
-					dto.setmBUY(rs.getString("mBUY"));
+					dto.setmBIRTH(rs.getString("mBIRTH"));	
 					dto.setmDROP(rs.getString("mDROP"));
 					memberlist.add(dto);
 				}
