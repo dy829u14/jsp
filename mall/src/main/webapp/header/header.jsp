@@ -10,14 +10,17 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath }/css/main.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/css/footer.css">
 
+
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
 <%
 	//로그인 세션 받아오기
 	String sessionId = (String)session.getAttribute("UserId");
 	String grade = (String)session.getAttribute("Grade");
+	if(grade == null){
+		grade = "0";
+	}
 %>
-<title>Insert title here</title>
 
 </head>
 <body>
@@ -27,9 +30,10 @@
 			<p><input type="text"/></p>
 			<ul>
 			<%
-				if(sessionId == null || grade == null){
+				if(sessionId == null || grade == null || grade.equals("0")){
 					%>
 					<li><a href="${pageContext.request.contextPath }/member/login.do">로그인</a></li>
+					<span>&nbsp;|&nbsp;</span>
 					<li><a href="${pageContext.request.contextPath }/member/join.do">회원가입</a></li>
 					<%
 				}else{
@@ -37,13 +41,22 @@
 					if(grade.equals("1")){
 						%>
 						<li><a href="${pageContext.request.contextPath }/member/logout.do">로그아웃</a></li>
+						<span>&nbsp;|&nbsp;</span>
 						<li><a href="#">회원정보</a></li>
+						<span>&nbsp;|&nbsp;</span>
 						<li><a href="#">마이페이지</a></li>
 						<%
 					}else if(grade.equals("10")){
 						%>
 						<li><a href="${pageContext.request.contextPath }/member/logout.do">로그아웃</a></li>
-						<li><a href="#">상품관리</a></li>
+						<span>&nbsp;|&nbsp;</span>
+						<div class="dropdown">
+					      <a href="#" class="dropbtn">상품관리</a>
+					      <div class="dropdown-content">
+					        <a href="${pageContext.request.contextPath }/mvc_con/product.do?p_type=add">상품등록</a>
+					        <a href="${pageContext.request.contextPath }/mvc_con/product.do?p_type=delete">상품삭제</a>
+					      </div>
+					    </div> 
 						<%
 					}
 				}

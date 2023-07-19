@@ -23,7 +23,7 @@
 			return false;
 		}
 		if(form.detail.value == ""){
-			alert("비밀번호를 입력하세요");
+			alert("상품설명을 입력하세요");
 			form.detail.focus();
 			return false;
 		}
@@ -40,7 +40,7 @@
 </head>
 <body>
 	<h2>상품등록</h2>
-	<form action="add.do" method="post" name="addForm"
+	<form action="${pageContext.request.contextPath }/mvc_con/product.do?p_type=add" method="post" name="addForm"
 	 enctype="multipart/form-data" onsubmit="return validateForm(this)">
 		<table border="1">
 			<tr>

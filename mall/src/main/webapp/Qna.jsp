@@ -15,7 +15,7 @@
 </head>
 <body>
 	<h2>Q&A 게시판</h2>
-	<form method="get">
+	<form class="inner" method="get">
 		<div>
 			<select name="searchField">
 				<option value="title">제목</option>
@@ -67,7 +67,7 @@
 			</c:otherwise>
 		</c:choose>
 	</table>
-	<div>
+	<div class="inner">
 		${map.pagingStr}		
 	</div>
 	<%@ include file="../footer/footer.jsp"%>

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h2>상세보기(View)</h2>
+	<h2>상세보기</h2>
 	<table>
 		<tr>
 			<td>번호</td>
@@ -41,5 +42,43 @@
 			</td>			
 		</tr>
 	</table>
+	<table>
+		<tr>
+			<td colspan="2">댓글</td>			
+		</tr>
+		<c:choose>
+			<c:when test="${empty boardlists}">
+			<tr>
+				<td colspan="2">등록된 댓글이 없습니다</td>
+			</tr>
+			</c:when>
+			<c:otherwise>
+				<c:forEach items="${boardlists}" var="com" varStatus="loop">
+				<tr>
+					<td>${com.mID}</td>
+					<td>${com.comDate}</td>
+				</tr>
+				<tr>																							
+					<td colspan="2">${com.comContent}</td>									
+				</tr>
+				</c:forEach>
+			</c:otherwise>
+		</c:choose>
+	</table>
+	<form name="writeForm" method="post" action="${pageContext.request.contextPath }/comment/CommentWrite.do">
+	<input name="qid" type="hidden" value="${dto.qID}">
+	<table>
+		<tr>			
+			<td><textarea name="content" placeholder="댓글을 입력하세요"></textarea></td>
+			<td>
+				<input type="submit" value="입력">
+				<input type="hidden" name="mid" value="<%= session.getAttribute("UserId") %>">
+			</td>
+		</tr>
+	</table>
+	</form>
+	<div>
+		${map.pagingStr}		
+	</div>
 </body>
 </html>
