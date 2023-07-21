@@ -47,13 +47,13 @@
 			<td colspan="2">댓글</td>			
 		</tr>
 		<c:choose>
-			<c:when test="${empty boardlists}">
+			<c:when test="${empty comlists}">
 			<tr>
 				<td colspan="2">등록된 댓글이 없습니다</td>
 			</tr>
 			</c:when>
 			<c:otherwise>
-				<c:forEach items="${boardlists}" var="com" varStatus="loop">
+				<c:forEach items="${comlists}" var="com" varStatus="loop">
 				<tr>
 					<td>${com.mID}</td>
 					<td>${com.comDate}</td>
@@ -76,9 +76,6 @@
 			</td>
 		</tr>
 	</table>
-	</form>
-	<div>
-		${map.pagingStr}		
-	</div>
+	</form>	
 </body>
 </html>

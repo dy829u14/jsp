@@ -12,7 +12,7 @@ public class BoardPaging {
 		int pageTemp = (((pageNum-1)/blockPage)*blockPage)+1;
 		if(pageTemp != 1) {
 			pagingStr += "<a href='"+reqUrl+"?pageNum=1'>[첫페이지]</a>";
-			pagingStr += "<a href='"+reqUrl+"?pageNum="+(pageTemp+1)+"'>[이전블록]</a>";
+			pagingStr += "<a href='"+reqUrl+"?pageNum="+(pageTemp+1)+"'>[이전]</a>";
 		}
 		//각 페이지 번호 출력
 		int blockcount = 1;
@@ -29,7 +29,7 @@ public class BoardPaging {
 		//마지막 페이지, 다음블럭 출력
 		//pageTemp가 전체페이지수 이하일때 다음블록과 마지막페이지 링크 출력
 		if(pageTemp <= totalPages) {
-			pagingStr += "<a href='"+reqUrl+"?pageNum="+pageTemp+"'>[다음블록]</a>";
+			pagingStr += "<a href='"+reqUrl+"?pageNum="+pageTemp+"'>[다음]</a>";
 			pagingStr += "<a href='"+reqUrl+"?pageNum="+totalPages+"'>[마지막페이지]</a>";
 		}
 		
@@ -50,10 +50,10 @@ public class BoardPaging {
 				pageStr += "&nbsp;<a href='"+ reqUrl +"?searchField="+searchField+
 						"&searchWord="+searchWord+"&pageNum=1'>[첫페이지]</a>&nbsp;";
 				pageStr += "&nbsp;<a href='"+ reqUrl +"?searchField="+searchField+
-						"&searchWord="+searchWord+"&pageNum="+(pageTemp-1)+"'>[이전블럭]</a>&nbsp;";
+						"&searchWord="+searchWord+"&pageNum="+(pageTemp-1)+"'>[이전]</a>&nbsp;";
 			}else {
 				pageStr += "<a href='"+reqUrl+"?pageNum=1'>[첫페이지]</a>";
-				pageStr += "<a href='"+reqUrl+"?pageNum="+(pageTemp-1)+"'>[이전블럭]</a>";
+				pageStr += "<a href='"+reqUrl+"?pageNum="+(pageTemp-1)+"'>[이전]</a>";
 			}
 			
 		}
@@ -82,11 +82,11 @@ public class BoardPaging {
 		if(pageTemp <= totalPages) {
 			if(searchWord != null && !searchWord.equals("")) {
 				pageStr += "&nbsp;<a href='"+ reqUrl +"?searchField="+searchField+
-						"&searchWord="+searchWord+"&pageNum="+(pageTemp+1)+"'>[다음블럭]</a>&nbsp;";
+						"&searchWord="+searchWord+"&pageNum="+(pageTemp+1)+"'>[다음]</a>&nbsp;";
 				pageStr += "&nbsp;<a href='"+ reqUrl +"?searchField="+searchField+
 						"&searchWord="+searchWord+"&pageNum="+totalPages+"'>[마지막페이지]</a>&nbsp;";
 			}else {
-				pageStr += "<a href='"+reqUrl+"?pageNum="+(pageTemp+1)+"'>[다음블럭]</a>";
+				pageStr += "<a href='"+reqUrl+"?pageNum="+(pageTemp+1)+"'>[다음]</a>";
 				pageStr += "<a href='"+reqUrl+"?pageNum="+totalPages+"'>[마지막페이지]</a>";
 			}
 		}

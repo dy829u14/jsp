@@ -15,7 +15,7 @@
 </head>
 <body>
 	<h2>Q&A 게시판</h2>
-	<form class="inner" method="get">
+	<form method="get">
 		<div>
 			<select name="searchField">
 				<option value="title">제목</option>

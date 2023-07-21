@@ -71,6 +71,7 @@
 				<li><a href="#">용품</a></li>
 				<li><a href="#">구매후기</a></li>
 				<li><a href="${pageContext.request.contextPath }/qna/qna.do">QnA</a></li>
+				<li><a href="${pageContext.request.contextPath }/review/review.do">후기</a></li>
 			</ul>
 		</nav>
 	</header>

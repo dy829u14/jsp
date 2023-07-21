@@ -56,7 +56,7 @@ public class QnaController extends HttpServlet{
 		
 		//뷰에 전달할 매개변수 추가
 		String pagingStr = BoardPaging.pagingstr(totalCount, pageSize, 
-				blockPage, pageNum, "/qna/qna.do");
+				blockPage, pageNum, "/mall/qna/qna.do");
 		map.put("pagingStr", pagingStr);
 		map.put("totalCount", totalCount);
 		map.put("pageSize", pageSize);
